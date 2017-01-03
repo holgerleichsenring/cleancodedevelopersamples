@@ -21,9 +21,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_1,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_1,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_1
+                Line1 = CharacterConstants.CHARACTER_1_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_1_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_1_LINE_3
             };
 
             //Act
@@ -44,9 +44,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_2,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_2,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_2
+                Line1 = CharacterConstants.CHARACTER_2_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_2_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_2_LINE_3
             };
 
             //Act
@@ -67,9 +67,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_3,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_3,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_3
+                Line1 = CharacterConstants.CHARACTER_3_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_3_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_3_LINE_3
             };
 
             //Act
@@ -90,9 +90,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_4,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_4,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_4
+                Line1 = CharacterConstants.CHARACTER_4_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_4_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_4_LINE_3
             };
 
             //Act
@@ -113,9 +113,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_5,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_5,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_5
+                Line1 = CharacterConstants.CHARACTER_5_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_5_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_5_LINE_3
             };
 
             //Act
@@ -136,9 +136,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_6,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_6,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_6
+                Line1 = CharacterConstants.CHARACTER_6_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_6_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_6_LINE_3
             };
 
             //Act
@@ -159,9 +159,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_7,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_7,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_7
+                Line1 = CharacterConstants.CHARACTER_7_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_7_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_7_LINE_3
             };
 
             //Act
@@ -182,9 +182,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_8,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_8,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_8
+                Line1 = CharacterConstants.CHARACTER_8_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_8_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_8_LINE_3
             };
 
             //Act
@@ -205,9 +205,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_9,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_9,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_9
+                Line1 = CharacterConstants.CHARACTER_9_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_9_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_9_LINE_3
             };
 
             //Act
@@ -228,9 +228,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.CharacterModelToCharacterDefint
             var characterModelData = new CharacterModel
             {
                 Line = 0,
-                Line1 = CharacterConstants.CHARACTER_LINE_1_0,
-                Line2 = CharacterConstants.CHARACTER_LINE_2_0,
-                Line3 = CharacterConstants.CHARACTER_LINE_3_0
+                Line1 = CharacterConstants.CHARACTER_0_LINE_1,
+                Line2 = CharacterConstants.CHARACTER_0_LINE_2,
+                Line3 = CharacterConstants.CHARACTER_0_LINE_3
             };
 
             //Act

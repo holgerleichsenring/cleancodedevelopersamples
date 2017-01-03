@@ -21,9 +21,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.LineReader
 
             var lines = new List<string>
             {
-                "     _   _       _   _   _   _   _   _ ",
-                "  |  _|  _| |_| |_  |_    | |_| |_| | |",
-                "  | |_   _|   |  _| |_|   | |_|  _| |_|"
+                CharacterConstants.NUMBERS_1234567890_LINE_1,
+                CharacterConstants.NUMBERS_1234567890_LINE_2,
+                CharacterConstants.NUMBERS_1234567890_LINE_3,
             };
             string stringLines = string.Join("\n", lines);
             var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(stringLines));

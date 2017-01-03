@@ -21,23 +21,12 @@ namespace CodingSamples.Test.OcrRecognition.System
             var lineReaderSubstitute = Substitute.For<ILineReader>();
             lineReaderSubstitute.Read("NotExistingFileName").Returns(new List<string>
             {
-                "     _   _       _   _   _   _   _   _ ",
-                "  |  _|  _| |_| |_  |_    | |_| |_| | |",
-                "  | |_   _|   |  _| |_|   | |_|  _| |_|"
+                CharacterConstants.NUMBERS_1234567890_LINE_1,
+                CharacterConstants.NUMBERS_1234567890_LINE_2,
+                CharacterConstants.NUMBERS_1234567890_LINE_3,
             });
 
-            WindsorContainer container = new WindsorContainer();
-            container.AddFacility<LogTypeResolverFacility>();
-            container.Register(Component.For<IConverter<string, string>>().ImplementedBy<CharacterDefinitionToCharacterConverter>());
-            container.Register(Component.For<IConverter<CharacterModel, string>>().ImplementedBy<CharacterModelToCharacterDefinitionConverter>());
-            container.Register(Component.For<ICharacterModelReader>().ImplementedBy<CharacterModelReader>());
-            container.Register(Component.For<ILineModelReader>().ImplementedBy<LineModelReader>());
-            container.Register(Component.For<CharacterDefinitions>());
-            container.Register(Component.For<IOcrProcessor>().ImplementedBy<OcrProcessor>());
-            container.Register(Component.For<IOcrOutputGenerator>().ImplementedBy<OcrOutputGenerator>());
-            container.Register(Component.For<ILineReader>().Instance(lineReaderSubstitute));
-            ServiceLocator.Initialize(container);
-
+            BootstrapApplication(lineReaderSubstitute);
             var ocrProcessor = ServiceLocator.Resolve<IOcrProcessor>();
 
             //Act
@@ -59,31 +48,21 @@ namespace CodingSamples.Test.OcrRecognition.System
             var lineReaderSubstitute = Substitute.For<ILineReader>();
             lineReaderSubstitute.Read("NotExistingFileName").Returns(new List<string>
             {
-                "     _   _       _   _   _   _   _   _ ",
-                "  |  _|  _| |_| |_  |_    | |_| |_| | |",
-                "  | |_   _|   |  _| |_|   | |_|  _| |_|",
-                " _       _ ",
-                "|_|   | |_ ",
-                "|_|   |  _|",
-                "     _ ",
-                "|_|  _|",
-                "  | |_ ",
-                " _   _ ",
-                "| |   |",
-                "|_|   |",
+                CharacterConstants.NUMBERS_1234567890_LINE_1,
+                CharacterConstants.NUMBERS_1234567890_LINE_2,
+                CharacterConstants.NUMBERS_1234567890_LINE_3,
+                CharacterConstants.NUMBERS_815_LINE_1,
+                CharacterConstants.NUMBERS_815_LINE_2,
+                CharacterConstants.NUMBERS_815_LINE_3,
+                CharacterConstants.NUMBERS_42_LINE_1,
+                CharacterConstants.NUMBERS_42_LINE_2,
+                CharacterConstants.NUMBERS_42_LINE_3,
+                CharacterConstants.NUMBERS_07_LINE_1,
+                CharacterConstants.NUMBERS_07_LINE_2,
+                CharacterConstants.NUMBERS_07_LINE_3,
             });
 
-            WindsorContainer container = new WindsorContainer();
-            container.AddFacility<LogTypeResolverFacility>();
-            container.Register(Component.For<IConverter<string, string>>().ImplementedBy<CharacterDefinitionToCharacterConverter>());
-            container.Register(Component.For<IConverter<CharacterModel, string>>().ImplementedBy<CharacterModelToCharacterDefinitionConverter>());
-            container.Register(Component.For<ICharacterModelReader>().ImplementedBy<CharacterModelReader>());
-            container.Register(Component.For<ILineModelReader>().ImplementedBy<LineModelReader>());
-            container.Register(Component.For<CharacterDefinitions>());
-            container.Register(Component.For<IOcrProcessor>().ImplementedBy<OcrProcessor>());
-            container.Register(Component.For<IOcrOutputGenerator>().ImplementedBy<OcrOutputGenerator>());
-            container.Register(Component.For<ILineReader>().Instance(lineReaderSubstitute));
-            ServiceLocator.Initialize(container);
+            BootstrapApplication(lineReaderSubstitute);
 
             var ocrProcessor = ServiceLocator.Resolve<IOcrProcessor>();
 
@@ -125,11 +104,26 @@ namespace CodingSamples.Test.OcrRecognition.System
             CheckForFailure(expectedCount, expectedString, line);
         }
 
+        private static void BootstrapApplication(ILineReader lineReaderSubstitute)
+        {
+            WindsorContainer container = new WindsorContainer();
+            container.AddFacility<LogTypeResolverFacility>();
+            container.Register(Component.For<IConverter<string, string>>().ImplementedBy<CharacterDefinitionToCharacterConverter>());
+            container.Register(Component.For<IConverter<CharacterModel, string>>().ImplementedBy<CharacterModelToCharacterDefinitionConverter>());
+            container.Register(Component.For<ICharacterModelReader>().ImplementedBy<CharacterModelReader>());
+            container.Register(Component.For<ILineModelReader>().ImplementedBy<LineModelReader>());
+            container.Register(Component.For<CharacterDefinitions>());
+            container.Register(Component.For<IOcrProcessor>().ImplementedBy<OcrProcessor>());
+            container.Register(Component.For<IOcrOutputGenerator>().ImplementedBy<OcrOutputGenerator>());
+            container.Register(Component.For<ILineReader>().Instance(lineReaderSubstitute));
+            ServiceLocator.Initialize(container);
+        }
+
         private void CheckForFailure(int expectedCount, string expectedString, OcrProcessingModel line)
         {
             var characters = line.Characters;
             Assert.IsTrue(characters.Count == expectedCount, $"Processing ocr failed: Should be {expectedCount} recognized characters but are {characters.Count}");
-            Assert.IsFalse(line.LineContainsInvalidCharacters, "Processing ocr failed: Should be {expectedCount} recognized characters but has unindentified");
+            Assert.IsFalse(line.LineContainsInvalidCharacters, $"Processing ocr failed: Should be {expectedCount} recognized characters but has unindentified");
             string characterResult = string.Join("", line.Characters);
             Assert.IsTrue(characterResult == expectedString, $"Processing ocr failed: Result should be {expectedString} but is {characterResult}");
 

@@ -13,16 +13,13 @@ namespace CodingSamples.Test.OcrRecognition.Unit.LineModelReader
         {
             // Arrange
             const string TEST_FILE_NAME = "TESTFILE.TXT";
-            const string LINE_1 = "     _   _       _   _   _   _   _   _ ";
-            const string LINE_2 = "  |  _|  _| |_| |_  |_    | |_| |_| | |";
-            const string LINE_3 = "  | |_   _|   |  _| |_|   | |_|  _| |_|";
 
             var log = ServiceLocator.GetLogger(typeof (Services.OcrRecognition.LineModelReader));
             var lines = new List<string>
             {
-                LINE_1,
-                LINE_2,
-                LINE_3
+                CharacterConstants.NUMBERS_1234567890_LINE_1,
+                CharacterConstants.NUMBERS_1234567890_LINE_2,
+                CharacterConstants.NUMBERS_1234567890_LINE_3
             };
             var lineReader = new Services.OcrRecognition.LineModelReader(log);
 
@@ -32,9 +29,9 @@ namespace CodingSamples.Test.OcrRecognition.Unit.LineModelReader
             //Assert
             Assert.IsTrue(result.Count() == 1, $"Should have returned 1 line but returned {result.Count()}.");
             var item = result.ToList()[0];
-            Assert.IsTrue(item.Line1 == LINE_1, $"Should have returned {LINE_1} as line 1 but returned {item.Line1}.");
-            Assert.IsTrue(item.Line2 == LINE_2, $"Should have returned {LINE_2} as line 2 but returned {item.Line2}.");
-            Assert.IsTrue(item.Line3 == LINE_3, $"Should have returned {LINE_3} as line 3 but returned {item.Line3}.");
+            Assert.IsTrue(item.Line1 == CharacterConstants.NUMBERS_1234567890_LINE_1, $"Should have returned {CharacterConstants.NUMBERS_1234567890_LINE_1} as line 1 but returned {item.Line1}.");
+            Assert.IsTrue(item.Line2 == CharacterConstants.NUMBERS_1234567890_LINE_2, $"Should have returned {CharacterConstants.NUMBERS_1234567890_LINE_2} as line 2 but returned {item.Line2}.");
+            Assert.IsTrue(item.Line3 == CharacterConstants.NUMBERS_1234567890_LINE_3, $"Should have returned {CharacterConstants.NUMBERS_1234567890_LINE_3} as line 3 but returned {item.Line3}.");
         }
     }
 }
