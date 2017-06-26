@@ -47,6 +47,11 @@ namespace CodingSamples.Services.OcrRecognition
             var lineModels = _lineModelReader.Read(lines);
             var characterModels = _characterModelReader.Read(lineModels);
 
+            return GetOcrProcessingModels(characterModels);
+        }
+
+        private Dictionary<int, OcrProcessingModel> GetOcrProcessingModels(IEnumerable<CharacterModel> characterModels)
+        {
             var charactersPerLine = new Dictionary<int, OcrProcessingModel>();
             foreach (CharacterModel characterModel in characterModels)
             {
@@ -70,7 +75,6 @@ namespace CodingSamples.Services.OcrRecognition
                 ocrProcessingModel.Characters.Add(character);
                 ocrProcessingModel.LineContainsInvalidCharacters |= invalid;
             }
-
             return charactersPerLine;
         }
     }
